@@ -1,2 +1,3 @@
 # PythonProjects
-BlackJack Game
+A Repo with both Python Scripts and Python Projects
+
