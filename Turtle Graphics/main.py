@@ -1,8 +1,6 @@
 from turtle import Turtle, Screen
 import random
-import heroes as heroes
 
-name = heroes.gen()
 tim = Turtle()
 
 
@@ -16,7 +14,7 @@ def draw_shape(num_sides):
         tim.right(angle)
 
 
-for shape_side_n in range(3, 15):
+for shape_side_n in range(1, 15):
     tim.color(random.choice(colours))
     draw_shape(shape_side_n)
 
