@@ -1,11 +1,17 @@
-print("please enter five numbers")
-num_input1 = float(input())
-num_input2 = float(input())
-num_input3 = float(input())
-num_input4 = float(input())
-num_input5 = float(input())
+num_grades = int(input(" How many grades would you like to input: "))
 
-total_sum = num_input1 + num_input2 + num_input3 + num_input4 + num_input5
-avg = total_sum/5
-print("The average of those numbers is: ")
-print(avg)
+
+def grade_input(total_grades,):
+    grades = []
+    i = 0
+    while i < total_grades:
+        grade_score = float(input("Enter Grade: "))
+        grades.append(grade_score)
+        i += 1
+    print(grades)
+
+def get_grade_avg():
+
+
+grade_input(num_grades)
+
