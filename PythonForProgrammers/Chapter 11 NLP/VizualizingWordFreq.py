@@ -8,7 +8,7 @@ from operator import itemgetter
 import pandas as pd
 import matplotlib.pyplot as plt
 
-blob = TextBlob(Path('Plant Cells.txt').read_text())
+blob = TextBlob(Path('TheProtocols.txt').read_text())
 stop_words = stopwords.words('english')
 
 # Getting the Word Frequencies
