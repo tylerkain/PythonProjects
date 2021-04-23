@@ -6,27 +6,26 @@ from Bot_Alive import keep_alive
 
 client = discord.Client()
 
-sad_words = ["Tearful", "Crushed", "Humiliated"
-                                   "Sorrowful", "Tormented", "Terrified", "Pained", "Deprived", "Nervous", "Grief",
-             "Tortured", "Scared",
-             "Anguish", "Dejected", "Worried",
-             "Desolate", "Rejected", "Frightened",
-             "Desperate", "Injured", "Restless",
-             "Pessimistic", "Offended", "Upset",
-             "Unhappy", "Afflicted", "Incapable",
-             "Lonely", "Aching", "Alone", "Grieved", "Victimized", "Paralyzed", "Misgiving", "Indecisive", "Sad"
-             ]
-starter_encouragement = ["The only person you are destined to become is the person you decide to be.",
-                         "Start where you are. Use what you have. Do what you can."
-                         ]
-
-
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
     quote = json_data[0]['q'] + "-" + json_data[0]['a']
     return quote
+
+
+def chuck_norris_facts():
+    response = requests.get("https://api.chucknorris.io/jokes/random")
+    json_data = json.loads(response.text)
+    fact = json_data['value']
+    return fact
+
+
+def daily_facts():
+    response = requests.get("https://uselessfacts.jsph.pl/random.json?language=en")
+    json_data = json.loads(response.text)
+    fact = json_data["text"]
+    return fact
 
 
 @client.event
@@ -40,14 +39,21 @@ async def on_message(message):
         return
     msg = message.content
 
-    if msg.startswith('$inspire'):
+    if msg.startswith('$quote'):
         quote = get_quote()
         await message.channel.send(quote)
 
-    if any(word.lower() in msg for word in sad_words):
-        await message.channel.send(random.choice(starter_encouragement))
+    if msg.startswith('$Chuck_Norris'):
+        fact = chuck_norris_facts()
+        await message.channel.send(fact)
+
+    if msg.startswith("$fact"):
+        daily_fact = daily_facts()
+        await message.channel.send(daily_fact)
+
+
 
 keep_alive()
-client.run('TOKEN')
+client.run("ODI5ODkxNzgzODg1NTg2NDQy.YG-u8w.lyxaALovOqg1ndgt4-jIilLjaUM")
 
 
