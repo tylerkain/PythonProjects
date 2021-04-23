@@ -54,6 +54,6 @@ async def on_message(message):
 
 
 keep_alive()
-client.run("ODI5ODkxNzgzODg1NTg2NDQy.YG-u8w.lyxaALovOqg1ndgt4-jIilLjaUM")
+client.run("")
 
 
