@@ -1,8 +1,10 @@
+import random
+
 import discord
 import requests
 import json
-import random
-from Bot_Alive import keep_alive
+from bot_alive import keep_alive
+
 
 client = discord.Client()
 
@@ -28,6 +30,13 @@ def daily_facts():
     return fact
 
 
+def dog_facts():
+    response = requests.get("https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1")
+    json_data = json.loads(response.text)
+    dog_fact = json_data[0]["fact"]
+    return dog_fact
+
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -50,10 +59,10 @@ async def on_message(message):
     if msg.startswith("$fact"):
         daily_fact = daily_facts()
         await message.channel.send(daily_fact)
-
+    if msg.startswith("$dog"):
+        dog_fact = dog_facts()
+        await message.channel.send(dog_fact)
 
 
 keep_alive()
 client.run("")
-
-
