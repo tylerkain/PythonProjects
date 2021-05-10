@@ -4,6 +4,7 @@ import discord
 import requests
 import json
 from bot_alive import keep_alive
+from Turtle_Racer import turtle_race
 
 
 client = discord.Client()
@@ -37,6 +38,10 @@ def dog_facts():
     return dog_fact
 
 
+def race():
+    turtle_race()
+    return turtle_race()
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -62,7 +67,10 @@ async def on_message(message):
     if msg.startswith("$dog"):
         dog_fact = dog_facts()
         await message.channel.send(dog_fact)
+    if msg.startswith("$race"):
+        race_turtle = race()
+        await message.channel.send(race_turtle)
 
 
 keep_alive()
-client.run("")
+client.run("ODI5ODkxNzgzODg1NTg2NDQy.YG-u8w.6OV-SIqNmW4qz68KrlKiLmz1vUI")
