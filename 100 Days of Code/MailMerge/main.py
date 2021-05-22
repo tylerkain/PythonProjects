@@ -1,9 +1,9 @@
 PlaceHolder = "[name]"
 
-with open("./Mail Merge Project Start/Input/Names/names.txt") as names_file:
+with open("Mail Merge Project Start/Input/Names/names.txt") as names_file:
     names = names_file.readlines()
 
-with open("./Mail Merge Project Start/Input/Letters/startingletter.txt") as letter_file:
+with open("Mail Merge Project Start/Input/Letters/startingletter.txt") as letter_file:
     letter_contents = letter_file.read()
     for name in names:
         stripped_name = name.strip()
