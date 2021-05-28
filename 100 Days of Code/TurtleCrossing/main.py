@@ -30,4 +30,4 @@ while game_is_on:
     if player.finish_line():
         player.go_home()
         cars.level_up()
-        score.
+        score.update_()
